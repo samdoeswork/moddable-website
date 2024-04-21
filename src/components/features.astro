@@ -1,58 +1,75 @@
 ---
 // @ts-ignore
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 const features = [
   {
-    title: "Bring Your Own Framework",
+    title: "Instant custom features",
     description:
-      "Build your site using React, Svelte, Vue, Preact, web components, or just plain ol' HTML + JavaScript.",
-    icon: "bx:bxs-briefcase",
+      "Users can extend your product in literally minutes.",
+    icon: "bi:lightning-charge-fill",
   },
   {
-    title: "100% Static HTML, No JS",
+    title: "Embedded Code Editor",
     description:
-      "Astro renders your entire page to static HTML, removing all JavaScript from your final build by default.",
-    icon: "bx:bxs-window-alt",
+      "Users simply click to open an editor, change a few lines, and save.",
+    icon: "heroicons-solid:code",
   },
   {
-    title: "On-Demand Components",
+    title: "Template Gallery",
     description:
-      "Need some JS? Astro can automatically hydrate interactive components when they become visible on the page.  ",
-    icon: "bx:bxs-data",
+      "You can create a gallery of sample mods users can use as a starting point.",
+    icon: "carbon:prompt-template",
   },
   {
-    title: "Broad Integration",
+    title: "Better DevX than Salesforce!",
     description:
-      "Astro supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind, Markdown, MDX, and any other npm packages.",
+      "Give your product a better mod experience than giants like Salesforce.",
+    icon: "fluent:window-dev-tools-16-regular",
+  },
+  {
+    title: "Batteries Included",
+    description:
+      "React, TypeScript, autocomplete/lint, TypeScript and Tailwind by default.",
+    icon: "mdi:battery-medium",
+  },
+  {
+    title: "On-Brand",
+    description:
+      "Set default styles which automatically apply your design-system to all mods.",
+    icon: "fa-solid:paint-roller",
+  },
+  {
+    title: "Seamless Auth",
+    description:
+      "Users never see a login screen. Mods can inherit the user's auth tokens.",
+    icon: "bx:lock-open",
+  },
+  {
+    title: "5 Minute Install",
+    description:
+    "It's absurd how easy it is to embed Moddable in your product.",
+    icon: "tabler:click",
+  },
+  {
+    title: "Context Matters",
+    description:
+      "User mods can use a context object you supply. Pass whatever you need.",
     icon: "bx:bxs-bot",
-  },
-  {
-    title: "SEO Enabled",
-    description:
-      "Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication. It just works!",
-    icon: "bx:bxs-file-find",
-  },
-  {
-    title: "Community",
-    description:
-      "Astro is an open source project powered by hundreds of contributors making thousands of individual contributions.",
-    icon: "bx:bxs-user",
   },
 ];
 ---
 
 <div class="mt-16 md:mt-0">
   <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-    Everything you need to start a website
+    From Product to Platform.
   </h2>
   <p class="text-lg mt-4 text-slate-600">
-    Astro comes batteries included. It takes the best parts of state-of-the-art
-    tools and adds its own innovations.
+    Mod-support is easily the most powerful feature in B2B software.
   </p>
 </div>
 
-<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16 mb-16">
   {
     features.map((item) => (
       <div class="flex gap-4 items-start">

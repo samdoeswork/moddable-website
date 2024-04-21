@@ -1,0 +1,65 @@
+---
+import Container from "@components/container.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="">
+  <Container>
+    <div>
+      <h1
+        class="mt-8 text-5xl lg:text-6xl xl:text-7xl font-bold my-4 lg:tracking-tight xl:tracking-tighter text-center">
+        Build a <span class="line-through">product</span> platform.
+      </h1>
+      <h2 class="center text-3xl mt-4 font-semibold text-slate-600 text-center">
+        The mod-experience your users deserve.
+      </h2>
+
+      <br /><br />
+    </div>
+
+
+    <h2 class="text-2xl mt-12 lg:text-3xl font-bold lg:tracking-tight">
+      Templates
+    </h2>
+
+    <p class="text-lg mt-4 text-slate-600">
+      Inspire your users. Create a gallery of pre-built mods they can use as
+      templates/starting points for their own mods.
+    </p>
+
+    <h2 class="text-2xl mt-12 lg:text-3xl font-bold lg:tracking-tight">
+      Platform Library
+    </h2>
+
+    <p class="text-lg mt-4 text-slate-600">
+      You define a Platform class which contains context and methods you want to
+      expose to user-mods.
+
+      <li>
+        <strong>Pass auth tokens</strong> so your mods can inherit permissions from
+        their user
+      </li>
+      <li>
+        <strong>Pass context.</strong> Let your user mods respond to which contact/ticket/task/whatever
+        is open
+      </li>
+      <li>
+        <strong>Write a library of helper functions.</strong> Make it effortless for users to
+        do common tasks in your platform!<br />
+        <p class="ml-4">
+          Whatever makes sense for your platform. E.g. "updateCurrentContact()" for a CRM or "setTaskStatus('complete')" for a
+          project management tool. The best part? We auto-create types so your
+          users get autocomplete and linting for these methods.
+        </p>
+      </li>
+    </p>
+
+    <h2 class="text-2xl mt-12 lg:text-3xl font-bold lg:tracking-tight">
+      You've Got Style!
+    </h2>
+
+    <p class="text-lg mt-4 text-slate-600">
+      Edit the platform wide CSS to implement your design system. This means user-mods will inherit your platform's look and feel.
+    </p>
+  </Container>
+</Layout>

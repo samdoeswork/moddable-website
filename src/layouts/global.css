@@ -1,0 +1,6 @@
+.blue-link {
+    color: rgb(48, 110, 203);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 2px;
+}

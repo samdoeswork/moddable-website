@@ -3,26 +3,26 @@ import Container from "@components/container.astro";
 import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import Picture from "astro/components/Picture.astro";
+import heroImage from "assets/moddable.png";
 
-const menuitems = [
+const menuitems:{title:string; path:string; children?:{title:string; path:string;}[];  badge?:boolean}[] = [
   {
     title: "Features",
     path: "#",
     children: [
-      { title: "Action", path: "/" },
-      { title: "Another action", path: "#" },
-      { title: "Dropdown Submenu", path: "#" },
-      { title: "404 Page", path: "/404" },
+      { title: "For Platforms", path: "/platform" },
+      { title: "For Users", path: "/user-experience" },
     ],
   },
   {
     title: "Pricing",
     path: "/pricing",
   },
-  {
-    title: "About",
-    path: "/about",
-  },
+  // {
+  //   title: "About",
+  //   path: "/about",
+  // },
   {
     title: "Blog",
     path: "/blog",
@@ -31,11 +31,11 @@ const menuitems = [
     title: "Contact",
     path: "/contact",
   },
-  {
-    title: "Pro Version",
-    badge: true,
-    path: "https://astroship-pro.web3templates.com/",
-  },
+  // {
+  //   title: "Pro Version",
+  //   badge: true,
+  //   path: "https://astroship-pro.web3templates.com/",
+  // },
 ];
 ---
 
@@ -44,9 +44,18 @@ const menuitems = [
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">Astro</span><span
-            class="text-slate-500">ship</span
           >
+          <Picture
+      src={heroImage}
+      alt="Astronaut in the air"
+      widths={[200, 400, 600]}
+      sizes="(max-width: 800px) 100vw, 400px"
+      loading="eager"
+      format="avif"
+      style={{maxWidth: "40px", display: "inline-block", marginRight: "8px" }}
+    />
+          
+          <span class="font-bold text-slate-800">moddable</span>
         </a>
         <div class="block lg:hidden">
           <MenuIcon class="w-4 h-4 text-gray-800" />
