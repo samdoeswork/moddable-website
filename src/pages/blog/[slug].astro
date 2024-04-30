@@ -48,9 +48,12 @@ const { Content } = await entry.render();
       </div>
     </div>
 
-    <div class="mx-auto prose prose-lg mt-6 max-w-3xl">
-      <Content />
-    </div>
+    <!-- <div class="mx-auto prose prose-lg mt-6 max-w-3xl">
+      {contentBeforeFirstHeading}
+    </div> -->
+
+    {entry.data.image && ( <div class="mx-auto mt-12 max-w-4xl"> <img src={entry.data.image.src} alt={entry.data.image.alt} class="w-full rounded-xl shadow-lg" /> </div> )} <div class="mx-auto prose prose-lg mt-6 max-w-3xl"> <Content /> </div> 
+
     <div class="text-center mt-16">
       <a
         href="/blog"

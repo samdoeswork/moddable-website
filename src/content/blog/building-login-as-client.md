@@ -1,10 +1,10 @@
 ---
 draft: false
-title: Building a 'Login as Client' mod for HoneyComb
+title: Building a 'Login as Client' mod
 snippet: "How we extended our observability tool (HoneyComb) with a new feature: Login as Client"
 image: {
-    src: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?&fit=crop&w=430&h=240",
-    alt: "frontend master"
+    src: "/blog/incognito.png",
+    alt: "Building a 'Login as any client' mod"
 }
 publishDate: "2024-04-27 16:05"
 category: "Tutorials"
@@ -12,7 +12,7 @@ author: "Sam Smith"
 tags: [mod-support, dog-fooding, devtools, honeycomb]
 ---
 
-I've been a [HoneyComb](https://www.honeycomb.io/) user for years. It's awesome! 
+I have been a [HoneyComb](https://www.honeycomb.io/) user for years. It's awesome! 
 
 ...But I've always wanted something more. HoneyComb helps find problematic events. But after finding a problem I want to jump straight into fixing it.
 
