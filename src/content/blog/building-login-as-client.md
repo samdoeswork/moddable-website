@@ -12,26 +12,26 @@ author: "Sam Smith"
 tags: [mod-support, dog-fooding, devtools, honeycomb]
 ---
 
-My other company uses HoneyComb for observability. It's great but I've always wished for a custom "next step". After finding problems I want to jump straight into fixing them.
+I've been a [HoneyComb](https://www.honeycomb.io/) user for years. It's awesome! 
 
-This is part 1 of a series on how we extended HoneyComb with specific mods to help us directly fix client issues. This post is about the "Login as Client" mod.
+...But I've always wanted something more. HoneyComb helps find problematic events. But after finding a problem I want to jump straight into fixing it.
 
-## The Problem
-After finding a problematic client configuration, I've always wished I could log in as that user and see what they see.
+In this series, I'll show you how I built some HoneyComb mods to add new power-user features. This part covers how I built a "Login as Any Client" mod.
+
+## Background
+Whenever I find some interesting/problematic event in HoneyComb, I always want to see what the client sees. I want to know what settings, etc. they have configured to reach that state.
 
 
 ## The Mod
-The solution mod is simple: when there's account and instance in the HoneyComb UI, let me click to open that instance in a new tab. I need to be logged in as that user. (Only to be used with their permission, of course).
+The mod I built lets me find a specific account/instance in HoneyComb. I can click "Login as Client" and select a row - it opens as a new tab, logged in as that user.
 
-
-## Making HoneyComb Moddable
-HoneyComb hasn't installed Moddable (yet). So I used the unofficial route.
-
-With Moddable installed - the UI now has a "Manage Custom Features" button.
+This way I can instantly see what they see when I'm troubleshooting. (With their permission, of course).
 
 
 ## Building the Mod
-The mod itself is just 28 lines. About half of which are the default template (Moddable mods are self-contained little React apps).
+HoneyComb hasn't installed Moddable (yet). So I used Moddable Emulator.
+
+Moddable mods are mini React apps. Here's the full code (28 lines):
 
 ```jsx
 import {useAppContext} from "./useAppContext";
@@ -69,9 +69,12 @@ Let's discuss some key parts.
 
 1. `useAppContext` is a hook provided by moddable. This gives whatever context is important from the embedding platform. In the (unofficial) HoneyComb implementation this is a rows array with whatever data is shown in the main panel.
 
-    this is **synchronized**: as the user navigates this mod will be updated with the new data without reloading.
+    This is **synchronized**: as the user navigates this mod will be updated with the new data without reloading.
 
 2. The `loginAsClient` handler is custom. It passes special superadmin key and receives back a token impersonating a specific user. This function then opens the client to that specific account & instance.
+
+### Note on security
+Pay attention to security! Endpoints like this should only *downgrade* permissions, not *upgrade* or *transfer* between accounts. In this example we swap a global admin token for a lower priviledge user. You should think about audit trails too.
 
 
 ## The End Result:

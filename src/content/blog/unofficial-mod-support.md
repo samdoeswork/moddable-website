@@ -1,6 +1,6 @@
 ---
 draft: false
-title: Implementing "unofficial" mod support
+title: The Moddable emulator ("unofficial" mod support in any software?)
 snippet: "Ornare cum cursus laoreet sagittis nunc fusce posuere per euismod dis vehicula a, semper fames lacus maecenas dictumst pulvinar neque enim non potenti. Torquent hac sociosqu eleifend potenti."
 image: {
     src: "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?&fit=crop&w=430&h=240",
@@ -12,27 +12,31 @@ author: "Sam Smith"
 tags: [mod-support, browser-extension]
 ---
 
-Moddable adds "better than Salesforce" mod-support to business software.
+Moddable adds incredible mod-support to business software. But there's a catch... the application has to install our component.
 
-Once installed, the platform's users can literally extend the platform with custom features *from inside the platform itself*. No setup/tooling/servers needed.
+The problem is - we want to show them what it looks like **before** they install it. So we built the "Moddable Emulator".
 
-**The problem is** this only works once the platform has installed Moddable. So how do we show them how it will look?
-
-
-
-## Unofficial mod support for demo purposes
-
-I believe in "show not tell".
-
-For really cool new technology people want to see a **demo**. Not a PowerPoint or a mock-up.
-
-The ideal demo is Moddable running **in their platform** and us showing the end-to-end process of a user building their own custom features.
+As the name suggests, this makes products act like Moddable is installed.
 
 This post is about how we found a way to make this happen: injecting Moddable into third-party platforms that haven't yet installed it.
 
 
+## But why?
+
+I believe in "show not tell".
+
+Specifically we want to show product-managers, etc. how powerful mod support could be **in their product**.
+
+The demo I wanted looks like this:
+ - We load up a version of **their platform** with Moddable installed.
+ - We click "Add custom feature", build & use a new custom feature just like a user would.
+
+The ideal demo is Moddable running **in their platform** and us showing the end-to-end process of a user building their own custom features.
+
+
+
 ## Four Theoretical Methods
-In theory you can inject a library like Moddable into a platform in a few ways.
+In theory you can inject a library like Moddable into a SaaS product in a few ways.
 
 | When            | How                | Technique |
 | :-------------- | :--------------    | :---------- |
