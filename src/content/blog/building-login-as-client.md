@@ -73,8 +73,13 @@ Let's discuss some key parts.
 
 2. The `loginAsClient` handler is custom. It passes special superadmin key and receives back a token impersonating a specific user. This function then opens the client to that specific account & instance.
 
+### About tokens
+Implementing the actual endpoint was pretty easy. If you use JWTs it's a simple case of `jwt.sign({ // modified payload })`.
+
+If you use managed auth it might vary but it's generally a line or two once you know the target account/user.
+
 ### Note on security
-Pay attention to security! Endpoints like this should only *downgrade* permissions, not *upgrade* or *transfer* between accounts. In this example we swap a global admin token for a lower priviledge user. You should think about audit trails too.
+Pay attention to security! Endpoints like this should only *downgrade* permissions, not *upgrade* or *transfer* between accounts. In this example we swap a global admin token for a lower priviledge user. You should think about *audit trails* too.
 
 
 ## The End Result:
