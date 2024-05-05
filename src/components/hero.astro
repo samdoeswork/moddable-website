@@ -1,53 +1,42 @@
----
+--- 
 import { Picture } from "astro:assets";
 import heroImage from "assets/moddable.png";
 import Link from "@components/ui/link.astro";
 import { Icon } from "astro-icon/components";
-
 ---
-
-<main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <div class="py-6 md:order-1 hidden md:block">
-    <Picture
-      src={heroImage}
-      alt="Astronaut in the air"
-      widths={[200, 400, 600]}
-      sizes="(max-width: 800px) 100vw, 400px"
-      loading="eager"
-      format="avif"
-      style={{maxWidth: "400px"}}
-    />
+<main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+  <div class="py-1 md:order-1 hidden md:block">
+    <Picture src={heroImage} alt="Astronaut in the air" widths={[200, 400, 600]} sizes="(max-width: 800px) 100vw, 400px" loading="eager" format="avif" style={{maxWidth: "400px"}} />
   </div>
   <div>
-    <h1
-      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+    <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
       Mod support for business software
     </h1>
     <p class="text-2xl mt-4 text-slate-600 max-w-xl">
       Let users add their own custom features without leaving your product.
     </p>
     <div class="mt-6 flex flex-col sm:flex-row gap-3">
-      <Link
-        href="#"
-        href="https://meetings-eu1.hubspot.com/sam14/moddable"
-        target="_blank"
-        class="flex gap-1 items-center justify-center"
-        rel="noopener">
+      <Link href="#" href="https://meetings-eu1.hubspot.com/sam14/moddable" target="_blank" class="flex gap-1 items-center justify-center" rel="noopener">
         <Icon class="text-white w-5 h-5 mr-2" name="fluent:calendar-add-28-regular" />
-
-         Book a demo
+        Book a demo
       </Link>
-      <Link
-        size="lg"
-        style="outline"
-        rel="noopener"
-        href="https://storage.cloud.google.com/moddable-public/Moddable%20Demo.mp4"
-        class="flex gap-1 items-center justify-center"
-        target="_blank">
+      <Link size="lg" style="outline" rel="noopener" href="#demoVideo" class="flex gap-1 items-center justify-center ml-2" id="watchDemoButton">
         <Icon class="text-black w-4 h-4 mr-2" name="fluent:video-clip-28-regular" />
-         Watch intro
+        Watch intro
       </Link>
     </div>
   </div>
 </main>
+
+<script>
+  const watchDemoButton = document.getElementById('watchDemoButton');
+  const demoVideo = document.getElementById('demoVideo') as HTMLVideoElement;
+
+  if (watchDemoButton && demoVideo) {
+    watchDemoButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      demoVideo.scrollIntoView({ behavior: 'smooth' });
+      demoVideo.play();
+    });
+  }
+</script>
