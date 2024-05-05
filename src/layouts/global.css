@@ -4,3 +4,9 @@
     text-underline-offset: 2px;
     text-decoration-thickness: 2px;
 }
+
+#blogMainContent {
+    h2 {
+        margin-top: 50px;
+    }
+}

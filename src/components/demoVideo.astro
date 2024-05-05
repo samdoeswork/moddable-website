@@ -1,0 +1,54 @@
+---
+---
+
+<div class="relative w-full h-0 pb-[56.25%] overflow-hidden mt-0 mb-20 border-grey-700 border-2 rounded-md">
+    <video
+      id="demoVideo"
+      class="absolute top-0 left-0 w-full h-full cursor-pointer"
+      src="https://storage.googleapis.com/moddable-public/Moddable%20in%20Honeycomb%201min.mov"
+      poster="https://storage.googleapis.com/moddable-public/moddable-in-60s-poster.png"
+      controls
+    ></video>
+    <div
+      id="playButton"
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-opacity-90 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer border-4 border-gray-800 bg-black"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="w-12 h-12 text-gray-900 text-white"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+          clip-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div>
+  
+  <script>
+    const video = document.getElementById('demoVideo') as HTMLVideoElement;
+    if (!video) throw new Error('Video element not found');
+    const playButton = document.getElementById('playButton');
+    if (!playButton) throw new Error('Play button element not found');
+  
+    video.addEventListener('play', () => {
+      playButton.style.display = 'none';
+      if (document.fullscreenEnabled) {
+        video.requestFullscreen();
+      }
+    });
+  
+    video.addEventListener('pause', () => {
+      playButton.style.display = 'flex';
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      }
+    });
+  
+    playButton.addEventListener('click', () => {
+      video.play();
+    });
+  </script>
